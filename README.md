@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/lloydXmas/pubsub-spa/blob/master/icons/app-icon.png" width=240 />
+<img src="https://github.com/lloydXmas/pubsub-spa/blob/master/icons/app-icon.png" width=200 />
 </p>
 
 # Pub/Sub SPA
