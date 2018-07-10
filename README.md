@@ -1,12 +1,13 @@
-# Pub/Sub SPA
 <p align="center">
-<img src="https://github.com/lloydXmas/pubsub-spa/blob/master/icons/react-mosq.png" width=300 />
+<img src="https://github.com/lloydXmas/pubsub-spa/blob/master/icons/react-mosq.png" width=200 />
 </p>
+
+# Pub/Sub SPA
 
 This is a demonstration of how a React single-page application can serve as a front-end for Message Queuing Telemetry Transport (MQTT) network messaging. It consists of WiFi connected endpoints, a Node backend for Pub/Sub subscribing, a central MQTT broker, and a React UI.
 
 ## MVP Goals
-- [ ] Deploy an MQTT broker to a VPS for private publish-subscribe messaging.
+- [x] Deploy an MQTT broker to a VPS for private publish-subscribe messaging.
 - [ ] An Express Node backend capable of subscribing to the MQTT broker and parsing messages to send data to the front.
 - [ ] React application whose components' states are updated based on incoming data.
 
