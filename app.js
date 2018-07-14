@@ -1,10 +1,16 @@
 require('dotenv').config()
 const express = require('express')
 const mqtt = require('mqtt')
-const clientId = 'mqttjs_' + Math.random().toString(16).substr(2, 8)
-const host =  process.env.MQTT_SERVER
 
 const app = express()
+const http = require('http').Server(app);
+const io = require('socket.io')(http)
+
+const cors = require('cors')
+app.use(cors())
+
+const host =  process.env.MQTT_SERVER
+const clientId = 'mqttjs_' + Math.random().toString(16).substr(2, 8)
 
 var options = {
   keepalive: 1800,
@@ -19,25 +25,46 @@ var options = {
   rejectUnauthorized: false
 }
 
-//console.log(options)
+console.log(options)
 var client = mqtt.connect(host, options)
 client.on('error', function (err) {
   console.log(err)
   client.end()
 })
-client.on('connect', function () {
-  console.log('client connected:' + clientId)
-})
-client.subscribe('flex', { qos: 0 })
-client.on('message', function (topic, message, packet) {
-  console.log(message.toString())
-  res.send(message.toString())
-})
-client.on('close', function () {
-  console.log(clientId + ' disconnected')
+
+client.on('connect', () => {
+  client.subscribe(['motion', 'temp'])
+  console.log('subscribed')
 })
 
+io.on('connection', socket => {
+  console.log("New client connected")
 
-app.listen(8080, function () {
-  console.log('Listening on port 8080');
+  client.on('message', (topic, message) => {
+    console.log(message.toString())
+    var inc = message.toString()
+    switch (inc) {
+      case 'motion01':
+        io.emit('motion', 'Zone 1')
+        console.log(message.toString())
+        break
+      case 'motion02':
+        io.emit('motion', 'Zone 2')
+        break
+      case 'motion03':
+        io.emit('motion', 'Zone 3')
+        break
+      case 'motion04':
+        io.emit('motion', 'Zone 4')
+        break
+      }
+      if (topic == 'temp') {
+        var tempd = message.toString()
+        io.emit('temp', tempd)
+      }
+    })
+})
+
+http.listen(8080, () => {
+  console.log('Listening on port 8080')
 })
