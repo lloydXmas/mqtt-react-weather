@@ -8,13 +8,8 @@ This is a demonstration of how a React single-page application can serve as a fr
 
 ## MVP Goals
 - [x] Deploy an MQTT broker to a VPS for private publish-subscribe messaging.
-- [x] An Express Node backend capable of subscribing to the MQTT broker and parsing messages to send data to the front.
-- [x] React application whose components' states are updated based on incoming data.
-
-## Stretch Goals
-- [ ] Integrate MQTT publishing into React so handler functions and publish data to the broker.
-- [ ] Use JSON web tokens to manage/track subscribed topics.
-- [ ] Integrate React Router to manage subscribed topics.
+- [x] An Express Node backend subscribes to the MQTT broker and parsing topic messages and forwards in Socket.IO.
+- [x] React components are are updated by App's state based on incoming Socket data.
 
 
 ## Prerequisites
@@ -26,4 +21,4 @@ This is a demonstration of how a React single-page application can serve as a fr
 ## Technologies
 ![React](icons/react.png) React &nbsp;|&nbsp; ![Express](icons/express.png) Express &nbsp;|&nbsp; ![Node.js](icons/nodejs.png) Node.js
 
-![MQTT.js](icons/mqttjs.png) MQTT.js &nbsp;|&nbsp; ![SOCKET.IO](icons/socketio.png) SOCKET.IO &nbsp;|&nbsp; ![Mosquitto](icons/mosquitto.png) Eclipse Mosquitto
+![MQTT.js](icons/mqttjs.png) MQTT.js &nbsp;|&nbsp; ![SOCKET.IO](icons/socketio.png) SOCKET.IO &nbsp;|&nbsp; ![Mosquitto](icons/mosquitto.png) Eclipse Mosquitto &nbsp;|&nbsp; ![Bootstrap](icons/bootstrap.png) Bootstrap
