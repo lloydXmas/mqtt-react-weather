@@ -58,7 +58,7 @@ class App extends Component {
 
   render() {
     return (
-			<div className="container-fluid">
+			<div className="container">
         <div className="mt-3 text-center">
           <img src={logo} className="logo" alt="logo" />
         </div>

@@ -5,7 +5,7 @@ function RowData(props) {
     <div className="col-lg-4 col-md-6 col-12 mb-3">
       <div className="card">
           <div className="card-body">
-              <h2 className="card-title pb-2 text-primary">{props.city}</h2>
+              <h2 className="card-title text-primary">{props.city}</h2>
               <div className="row">
                   <div className="col-12">
                       <h1 className="field-temp">{props.temp}<span className="temp-unit">{props.temp ? '\u2109' : ''}</span></h1>
