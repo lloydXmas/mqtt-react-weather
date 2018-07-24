@@ -2,18 +2,24 @@
 <img src="https://github.com/lloydXmas/pubsub-spa/blob/master/icons/app-icon.png" width=200 />
 </p>
 
-# Pub/Sub SPA
+# MQTT React Weather
 
-This is a demonstration of how a React single-page application can serve as a front-end for Message Queuing Telemetry Transport (MQTT) network messaging. It connects WiFi endpoints with sensors to a Node backend via Pub/Sub subscribing and uses Socket IO to push the data to React's UI.
+This is a demonstration of integrating Message Queuing Telemetry Transport (MQTT) network messaging with a Node backend and React. WiFi or mobile sensors publish data to an MQTT broker of which Node is subscribed to. Node then forwards that data using Socket.IO to React's UI, where the data is passed as props into stateless components.
 
 ## MVP Goals
 - [x] Deploy an MQTT broker to a VPS for private publish-subscribe messaging.
-- [x] An Express Node backend subscribes to the MQTT broker and parsing topic messages and forwards in Socket.IO.
-- [x] React components are are updated by App's state based on incoming Socket data.
+- [x] A functional Express + Node backend that's subscribed to the MQTT broker: it parsing incoming messages and emits the data through a socket.
+- [x] React component whose state is updated from incoming Socket data.
 
 
 ## Prerequisites
 * An MQTT broker needs to be accessible for this project. I'm using [Eclipse Mosquitto](https://mosquitto.org/) deployed on a VPS, but there are cloud-baed MQTT brokers available such as [AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html).
+  * Server environment variables: 
+   ```javascript
+    MQTT_SERVER='wss://your.server.com:port'
+    MQTT_USERNAME=username
+    MQTT_PASSWORD=password
+    ```
 
 * WiFi equipped sensors: e.g. [Particle Photon](https://www.particle.io/products/hardware/photon-wifi/) or [Adafruit WICED Feather](https://www.adafruit.com/product/3056).
 
