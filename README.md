@@ -29,5 +29,6 @@ This is a demonstration of integrating Message Queuing Telemetry Transport (MQTT
 
 ![MQTT.js](icons/mqttjs.png) MQTT.js &nbsp;|&nbsp; ![SOCKET.IO](icons/socketio.png) SOCKET.IO &nbsp;|&nbsp; ![Mosquitto](icons/mosquitto.png) Eclipse Mosquitto &nbsp;|&nbsp; ![Bootstrap](icons/bootstrap.png) Bootstrap
 
+## Demo
 
 ![Demo](icons/demo.gif?raw=true)
