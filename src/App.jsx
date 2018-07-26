@@ -19,25 +19,9 @@ class App extends Component {
     this.updateData = this.updateData.bind(this)
   }
 
-  //Topics to listen for data
   componentDidMount() {
-    this.socket.on('sonoma', (received) => {
-      this.updateData('sonoma', received)
-    })
-    this.socket.on('miami', (received) => {
-      this.updateData('miami', received)
-    })
-    this.socket.on('houston', (received) => {
-      this.updateData('houston', received)
-    })
-    this.socket.on('atlanta', (received) => {
-      this.updateData('atlanta', received)
-    })
-    this.socket.on('boston', (received) => {
-      this.updateData('boston', received)
-    })
-    this.socket.on('denver', (received) => {
-      this.updateData('denver', received)
+    this.socket.on('app', (received) => {
+      this.updateData(received)
     })
   }
 
@@ -45,15 +29,24 @@ class App extends Component {
     this.socket.close()
   }
 
-  updateData(city, received){
-    let data = {...this.state}
-    //Don't overwrite prior values if undefined
-    received.temp = received.temp || this.state[city].temp
-    received.humidity = received.humidity || this.state[city].humidity
-    received.pressure = received.pressure || this.state[city].pressure
-    received.windspeed = received.windspeed || this.state[city].windspeed
-    data[city] = received
-    this.setState(data)
+  updateData(received) {
+    var city = received.city
+    const fields = ['temp', 'humidity', 'pressure', 'windspeed', 'winddirection']
+    if (typeof(city) !== 'undefined') {  //Omit data if city wasn't specifed
+      this.setState((prevState) => {
+        var data = prevState
+        for (let field of fields) {
+          //If a field's value wasn't published, don't overwrite existing data
+          if (!(field in received)) {
+            received[field] = prevState[city][field]
+          } else {
+            received[field] = received[field]
+          }
+        }
+        data[city] = received
+        return {data}
+      })
+    }
   }
 
   render() {

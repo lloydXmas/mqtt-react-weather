@@ -40,7 +40,7 @@ io.on('connection', socket => {
   console.log("New client: ", connectedClients)
 })
 
-client.subscribe(cities)
+client.subscribe('app')
 client.on('message', (topic, message) => {
   const verifyJSON = (json) => {  //Catch invlaid JSON
     let parsed
@@ -53,7 +53,7 @@ client.on('message', (topic, message) => {
   }
   var received = verifyJSON(message)
   console.log('Topic: '+topic+'\nMessage: ', JSON.stringify(received))
-  io.emit(topic, received)  //emit topic(city name) and json data to React
+  io.emit('app', received)  //Emit topic(city name) and json data to React
 })
 
 http.listen(8080, () => {
