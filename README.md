@@ -14,7 +14,7 @@ This is a demonstration of integrating Message Queuing Telemetry Transport (MQTT
 
 ## Prerequisites
 * An MQTT broker needs to be accessible for this project. I'm using [Eclipse Mosquitto](https://mosquitto.org/) deployed on a VPS, but there are cloud-baed MQTT brokers available such as [AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html).
-  * Server environment variables: 
+  * Server environment variables:
    ```javascript
     MQTT_SERVER='wss://your.server.com:port'
     MQTT_USERNAME=username
@@ -28,3 +28,6 @@ This is a demonstration of integrating Message Queuing Telemetry Transport (MQTT
 ![React](icons/react.png) React &nbsp;|&nbsp; ![Express](icons/express.png) Express &nbsp;|&nbsp; ![Node.js](icons/nodejs.png) Node.js
 
 ![MQTT.js](icons/mqttjs.png) MQTT.js &nbsp;|&nbsp; ![SOCKET.IO](icons/socketio.png) SOCKET.IO &nbsp;|&nbsp; ![Mosquitto](icons/mosquitto.png) Eclipse Mosquitto &nbsp;|&nbsp; ![Bootstrap](icons/bootstrap.png) Bootstrap
+
+
+![Demo](icons/demo.gif?raw=true)
