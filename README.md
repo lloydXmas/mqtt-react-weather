@@ -30,6 +30,7 @@ This is a demonstration of how Message Queuing Telemetry Transport (MQTT) networ
 This app expects any of the following JSON parameters from the broker:
 
 ```sh
+name: [STRING]
 temp: [INT or FLOAT]
 humidity: [INT or FLOAT]
 pressure: [INT or FLOAT]
