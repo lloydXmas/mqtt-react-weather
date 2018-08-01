@@ -9,7 +9,7 @@ This is a demonstration of how Message Queuing Telemetry Transport (MQTT) networ
 
 ## Flow of Data
 1. WiFi or other mobile sensors publish data to an MQTT broker
-2. A Node.js back-end subscribes to the MQTT broker and receives the data using MQTT.js
+2. Node.js back-end subscribes to the MQTT broker and receives the data using MQTT.js
 3. Node.js forwards the data over Socket.IO to React
 4. React's state is updated and the data is passed down to stateless components
 
@@ -30,6 +30,7 @@ This is a demonstration of how Message Queuing Telemetry Transport (MQTT) networ
 This app expects any of the following JSON parameters from the broker:
 
 ```sh
+name: [STRING]
 temp: [INT or FLOAT]
 humidity: [INT or FLOAT]
 pressure: [INT or FLOAT]
