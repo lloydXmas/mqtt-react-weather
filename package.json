@@ -1,5 +1,5 @@
 {
-  "name": "pubsub-spa",
+  "name": "pubsub-spa'",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -18,8 +18,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "mocha",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "mocha": "5.2.0",
+    "assert": "1.4.1"
+  }
 }
