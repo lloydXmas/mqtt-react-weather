@@ -21,7 +21,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "mocha": "5.2.0",
-    "assert": "1.4.1"
+    "assert": "1.4.1",
+    "mocha": "^8.1.0"
   }
 }
